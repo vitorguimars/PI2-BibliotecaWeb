@@ -1,27 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Projeto CRUD</title>
-        <style>
-            .mensagem {
-                color:red;
-                font-size: x-large                    
-            }
-        </style>
+        <title>Biblioteca Web</title>
+       
     </h:head>
     <h:body>
-        <h1>LOGIN DE ACESSO</h1>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Usuario: " for="idUsuario"/>
-                <h:inputText value="#{loginMB.login}" id="idUsuario"/>
-                <h:outputLabel value="Senha: " for="idSenha"/>
-                <h:inputSecret value="#{loginMB.senha}" id="idSenha"/>
-                <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
-            </h:panelGrid>
-            <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
-        </h:form>
+        <ui:composition template="./modelo.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    
+                    <h:form style="margin-left: 40%; margin-top: 5%;">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Usuario: " for="idUsuario"/>
+                        <h:inputText class="form-control" value="#{loginMB.login}" id="idUsuario"/>
+                        <h:outputLabel value="Senha: " for="idSenha"/>
+                        <h:inputSecret class="form-control" value="#{loginMB.senha}" id="idSenha"/>
+                        <h:commandButton class="btn btn-success" value="Login" action="#{loginMB.verificaLogin()}" />
+                    </h:panelGrid>
+                    <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
+                </h:form>
+                    
+                </div>
+            </ui:define>
+
+
+            <ui:define name="bottom">
+
+                <nav class="hidden-xs navbar navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="navbar-header pull-left">
+                            <p style="color: #000;">© Todos os direitos reservados!</p>
+                            [                     </div>
+                    </div>
+                </nav>
+            </ui:define>
+
+
+
+
+
+
+        </ui:composition>
     </h:body>
 </html>
+
