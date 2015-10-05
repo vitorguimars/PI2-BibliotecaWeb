@@ -1,13 +1,24 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+     
     <h:head>
-        <title>Cadastro de Usuarios</title>
+         
+        <title>Biblioteca Web</title>
+       
     </h:head>
     <h:body>
-        <h1>Cadastro de Usuarios</h1>
+        <ui:composition template=".././modelo.xhtml">
+    <ui:define name="top">
+        <img class="imagem_logo" src=".././resources/imagem/topo_home.jpg" />
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="margin-left: 30%; margin-top: 5%;" class="well col-lg-5 col-offset-5">
+       <h:outputLabel style="font-size: 20px;" value="Cadastro de Usuarios" />
         <h:form>
             <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
                 <f:facet name="header">
@@ -64,8 +75,19 @@
             <br/><br/>
             <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
         </h:form>
+       </div>
+    </ui:define>
+
+    <ui:define name="bottom">
+       <nav class="hidden-xs navbar navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="navbar-header pull-left">
+                            <p style="color: #000;">© Todos os direitos reservados!</p>
+                       </div>                         
+                    </div>
+                </nav>
+    </ui:define>
+
+</ui:composition>
     </h:body>
 </html>
-
-
-

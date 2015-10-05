@@ -1,13 +1,22 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+     
     <h:head>
-        <title>Facelet Title</title>
+         
+        <title>Biblioteca Web</title>
+       
     </h:head>
     <h:body>
-        <h1>Projeto CRUD</h1>
+        <ui:composition template=".././modelo.xhtml">
+    <ui:define name="top">
+        <img class="imagem_logo" src=".././resources/imagem/topo_home.jpg" />
+    </ui:define>
+
+    <ui:define name="content">
+        <h:outputLabel style="font-size: 20px;" value="Edição" />
         <h:form>
             <h:panelGrid columns="2" >
                 
@@ -24,15 +33,27 @@
                 <h:inputText id="idLogin" value="#{usuarioMB.usuarioSelecionado.login}" />
 
                 <h:outputLabel for="idSenha" value="Senha"/>
-                <h:inputSecret id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
+                <h:inputSecret redisplay="true" id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
 
                 <h:outputLabel for="idAdmin" value="É admin"/>
                 <h:selectBooleanCheckbox value="#{usuarioMB.usuarioSelecionado.admin}" />
 
                 <h:commandButton value="Editar" action="#{usuarioMB.atualizarUsuario()}"/>
-                <h:button value="Voltar" outcome="/admin/index"/>
+                <h:button value="Voltar" outcome="/admin2/index"/>
             </h:panelGrid>
         </h:form>
+    </ui:define>
+
+    <ui:define name="bottom">
+       <nav class="hidden-xs navbar navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="navbar-header pull-left">
+                            <p style="color: #000;">© Todos os direitos reservados!</p>
+                       </div>                         
+                    </div>
+                </nav>
+    </ui:define>
+
+</ui:composition>
     </h:body>
 </html>
-
