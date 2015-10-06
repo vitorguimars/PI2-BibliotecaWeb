@@ -4,90 +4,107 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-     
+
     <h:head>
-         
+
         <title>Biblioteca Web</title>
-       
+
     </h:head>
     <h:body>
         <ui:composition template=".././modelo.xhtml">
-    <ui:define name="top">
-        <img class="imagem_logo" src=".././resources/imagem/topo_home.jpg" />
-    </ui:define>
+            <ui:define name="top">
+                <img class="imagem_logo" src=".././resources/imagem/topo_home.jpg" />
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <!--<button class="btn btn-default" type="submit">Principla</button> -->
+                            <h:form>
+                                <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Principal" action="/admin2/index?faces-redirect=true"/>
+                                <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Cadastro Usuários" action="/admin2/cadastro?faces-redirect=true"/>
+                                <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Cadastro Livros" action="#"/>
+                                <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Retirada/Devolução" action="#"/>
+                                <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Logout" action="#{loginMB.realizaLogout()}"/>
+                                
+                            </h:form>
+                            
+                        </div>
+                    </div>
+                </nav>
+            </ui:define>
 
-    <ui:define name="content">
-        <div style="margin-left: 30%; margin-top: 5%;" class="well col-lg-5 col-offset-5">
-       <h:outputLabel style="font-size: 20px;" value="Cadastro de Usuarios" />
-        <h:form>
-            <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
-                <f:facet name="header">
-                    <h:outputText value="Tabela de Usuarios" />
-                </f:facet>
-                
-                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Matricula" />
-                    </f:facet>
-                     <h:outputText id="idMatricula" value="#{usuario.matricula}"  />
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nome" />
-                    </f:facet>
-                    <h:outputText id="idNome" value="#{usuario.nome}"  />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Telefone" />
-                    </f:facet>
-                    <h:outputText id="idTelefone" value="#{usuario.telefone}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Livros Pegos" />
-                    </f:facet>
-                    <h:outputText id="idLivrosPegos" value="#{usuario.livrosPegos}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Login" />
-                    </f:facet>
-                    <h:outputText  id="idLogin" value="#{usuario.login}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="E admin" />
-                    </f:facet>
-                    <h:outputText  value="#{usuario.adminString}" />
-                </h:column>
-                <h:column >
-                    <f:facet name="header">
-                        <h:outputText value="Operacao" />
-                    </f:facet>
-                        <h:commandLink value="Editar " action="#{usuarioMB.editarUsuario(usuario)}"/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
-                </h:column>
-            </h:dataTable>
-            <h:commandButton value="Novo Usuario" action="#{usuarioMB.novoUsuario()}"/>
-            <br/><br/>
-            <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
-        </h:form>
-       </div>
-    </ui:define>
+            <ui:define name="content">
+                <div style="margin-left: 30%;" class="well col-lg-6 col-offset-6">
+                    <h:outputLabel style="font-size: 25px;" value="Lista de Usuários" />
+                    <h:form>
+                        <h:dataTable style="min-width:600px;min-height:100px;" class="table-bordered"   var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
+                            <f:facet name="header">
+                                <h:outputText  value="Tabela de Usuarios" />
+                            </f:facet>
 
-    <ui:define name="bottom">
-       <nav class="hidden-xs navbar navbar-fixed-bottom">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText   value="Matricula" />
+                                </f:facet>
+                                <h:outputText  id="idMatricula" value="#{usuario.matricula}"  />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Nome" />
+                                </f:facet>
+                                <h:outputText  id="idNome" value="#{usuario.nome}"  />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Telefone" />
+                                </f:facet>
+                                <h:outputText  id="idTelefone" value="#{usuario.telefone}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Livros Pegos" />
+                                </f:facet>
+                                <h:outputText  id="idLivrosPegos" value="#{usuario.livrosPegos}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Login" />
+                                </f:facet>
+                                <h:outputText  id="idLogin" value="#{usuario.login}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="E admin" />
+                                </f:facet>
+                                <h:outputText  value="#{usuario.adminString}" />
+                            </h:column>
+                            <h:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Operacao" />
+                                </f:facet>
+                                <h:commandLink value="Editar " action="#{usuarioMB.editarUsuario(usuario)}"/>
+                                &nbsp;&nbsp;&nbsp;
+                                <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
+                            </h:column>
+                        </h:dataTable>
+                        <br/>
+                        
+                        
+                       
+                    </h:form>
+                </div>
+            </ui:define>
+
+            <ui:define name="bottom">
+                <nav class="hidden-xs navbar navbar-fixed-bottom">
                     <div class="container-fluid">
                         <div class="navbar-header pull-left">
                             <p style="color: #000;">© Todos os direitos reservados!</p>
-                       </div>                         
+                        </div>                         
                     </div>
                 </nav>
-    </ui:define>
+            </ui:define>
 
-</ui:composition>
+        </ui:composition>
     </h:body>
 </html>

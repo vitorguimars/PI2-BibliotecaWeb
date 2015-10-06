@@ -4,7 +4,7 @@ package bean;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import model.Usuario;
 
@@ -13,7 +13,7 @@ import model.Usuario;
  * @author vitor
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginMB {
  private String login, senha;
     private Usuario usuarioLogado;    
@@ -61,14 +61,13 @@ public class LoginMB {
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
                 if (usuario.isAdmin()) {
-                    
                     return ("/admin2/index?faces-redirect=true");
                 } else {
-                    
-                    return ("/usuario1/index?faces-redirect=true");
+                    return ("usuario1/index?faces-redirect=true");
                 }
             }
         }
+        
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                 "Login inválido!", "Usuário ou senha estão errados!");
         contexto.addMessage("idMensagem", mensagem);

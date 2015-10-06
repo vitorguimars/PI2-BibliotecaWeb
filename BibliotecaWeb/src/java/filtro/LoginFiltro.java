@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vitor
  */
-@WebFilter(filterName = "FiltroLogin", urlPatterns = {"/faces/login.xhtml"})
+@WebFilter(filterName = "LoginFiltro", urlPatterns = {"/faces/login.xhtml"})
 public class LoginFiltro implements Filter {
     
     @Override
@@ -34,9 +34,9 @@ public class LoginFiltro implements Filter {
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
         if(auth!=null && auth.estaLogado()){
             if(auth.eAdmin())
-                resp.sendRedirect(req.getContextPath()+"/faces/admin/index.xhtml");
+                resp.sendRedirect(req.getContextPath()+"/faces/admin2/index.xhtml");
             else
-                resp.sendRedirect(req.getContextPath()+"/faces/usuario/index.xhtml");
+                resp.sendRedirect(req.getContextPath()+"/faces/usuario1/index.xhtml");
         }            
         else
             chain.doFilter(request, response);

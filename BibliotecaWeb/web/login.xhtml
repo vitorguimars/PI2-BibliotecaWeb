@@ -5,29 +5,29 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Biblioteca Web</title>
-       
+
     </h:head>
     <h:body>
         <ui:composition template="./modelo.xhtml">
-            
+
             <ui:define name="top">
-        <img class="imagem_logo" src="./resources/imagem/topo_home.jpg" />
-           </ui:define>
-            
+                <img class="imagem_logo" src="./resources/imagem/topo_home.jpg" />
+            </ui:define>
+
             <ui:define name="content">
                 <div class="container">
-                    
+
                     <h:form style="margin-left: 40%; margin-top: 5%;">
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="Usuario: " for="idUsuario"/>
-                        <h:inputText class="form-control" value="#{loginMB.login}" id="idUsuario"/>
-                        <h:outputLabel value="Senha: " for="idSenha"/>
-                        <h:inputSecret class="form-control" value="#{loginMB.senha}" id="idSenha"/>
-                        <h:commandButton class="btn btn-success" value="Login" action="#{loginMB.verificaLogin()}" />
-                    </h:panelGrid>
-                    <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
-                </h:form>
-                    
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Usuario: " for="idUsuario"/>
+                            <h:inputText class="form-control" value="#{loginMB.login}" id="idUsuario"/>
+                            <h:outputLabel value="Senha: " for="idSenha"/>
+                            <h:inputSecret class="form-control" value="#{loginMB.senha}" id="idSenha"/>
+                            <h:commandButton class="btn btn-success" value="Login" action="#{loginMB.verificaLogin()}" />
+                        </h:panelGrid>
+                        <h:messages id="idMensagem" showDetail="true" errorClass="mensagem"/>
+                    </h:form>
+
                 </div>
             </ui:define>
 

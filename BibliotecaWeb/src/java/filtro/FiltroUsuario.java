@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vitor
  */
-@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/usuario/*"})
+@WebFilter(filterName = "FiltroAcessoUsuario", urlPatterns = {"/faces/usuario1/*"})
 public class FiltroUsuario implements Filter {
-    
-     @Override
+
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
@@ -41,5 +41,5 @@ public class FiltroUsuario implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
     }
-    
+
 }

@@ -16,32 +16,36 @@
     </ui:define>
 
     <ui:define name="content">
-        <h:outputLabel style="font-size: 20px;" value="Edição" />
+        <div class="container">
+             <div style="margin-left: 35%; margin-top: 5%;" class="well col-lg-4 col-offset-4">
+        <h:outputLabel style="font-size: 25px;" value="Edição" />
         <h:form>
             <h:panelGrid columns="2" >
                 
-                 <h:outputLabel for="idMatricula" value="Matricula:"/>
-                 <h:inputText id="idMatricula" value="#{usuarioMB.usuarioSelecionado.matricula}"  />
+                 <h:outputLabel  for="idMatricula" value="Matricula:"/>
+                 <h:inputText class="form-control" id="idMatricula" value="#{usuarioMB.usuarioSelecionado.matricula}"  />
                 
                 <h:outputLabel for="idNome" value="Nome:"/>
-                <h:inputText id="idNome" value="#{usuarioMB.usuarioSelecionado.nome}"  />
+                <h:inputText class="form-control" id="idNome" value="#{usuarioMB.usuarioSelecionado.nome}"  />
 
                 <h:outputLabel for="idTelefone" value="Telefone:"/>
-                <h:inputText id="idTelefone" value="#{usuarioMB.usuarioSelecionado.telefone}" />
+                <h:inputText class="form-control" id="idTelefone" value="#{usuarioMB.usuarioSelecionado.telefone}" />
 
                 <h:outputLabel for="idLogin" value="Login:"/>
-                <h:inputText id="idLogin" value="#{usuarioMB.usuarioSelecionado.login}" />
+                <h:inputText class="form-control" id="idLogin" value="#{usuarioMB.usuarioSelecionado.login}" />
 
                 <h:outputLabel for="idSenha" value="Senha"/>
-                <h:inputSecret redisplay="true" id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
+                <h:inputSecret class="form-control" redisplay="true" id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
 
                 <h:outputLabel for="idAdmin" value="É admin"/>
                 <h:selectBooleanCheckbox value="#{usuarioMB.usuarioSelecionado.admin}" />
 
-                <h:commandButton value="Editar" action="#{usuarioMB.atualizarUsuario()}"/>
-                <h:button value="Voltar" outcome="/admin2/index"/>
+                <h:commandButton class="btn btn-success" value="Editar" action="#{usuarioMB.atualizarUsuario()}"/>
+                <h:button class="btn btn-success" value="Voltar" outcome="/admin2/index"/>
             </h:panelGrid>
         </h:form>
+         </div>
+        </div>
     </ui:define>
 
     <ui:define name="bottom">
