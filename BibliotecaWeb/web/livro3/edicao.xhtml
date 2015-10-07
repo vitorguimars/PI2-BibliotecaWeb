@@ -36,26 +36,26 @@
         <h:form>
             <h:panelGrid columns="2" >
                 
-                 <h:outputLabel  for="idMatricula" value="Matricula:"/>
-                 <h:inputText class="form-control" id="idMatricula" required="true" value="#{usuarioMB.usuarioSelecionado.matricula}"  />
+                <h:outputLabel for="isbn" value="ISBN:"/>
+                <h:inputText class="form-control" id="isbn" required="true" value="#{livroMB.livroSelecionado.isbn}"  />
                 
-                <h:outputLabel for="idNome" value="Nome:"/>
-                <h:inputText class="form-control" id="idNome" required="true" value="#{usuarioMB.usuarioSelecionado.nome}"  />
+                <h:outputLabel for="idNomeLivro" value="Nome do Livro:"/>
+                <h:inputText class="form-control" id="idNomeLivro" required="true" value="#{livroMB.livroSelecionado.nomeLivro}"  />
 
-                <h:outputLabel for="idTelefone" value="Telefone:"/>
-                <h:inputText class="form-control" id="idTelefone" required="true" value="#{usuarioMB.usuarioSelecionado.telefone}" />
+                <h:outputLabel for="idAutor" value="Autor:"/>
+                <h:inputText class="form-control" id="idAutor" required="true" value="#{livroMB.livroSelecionado.autor}" />
 
-                <h:outputLabel for="idLogin" value="Login:"/>
-                <h:inputText class="form-control" id="idLogin" required="true" value="#{usuarioMB.usuarioSelecionado.login}" />
+                <h:outputLabel for="idEditora" value="Editora:"/>
+                <h:inputText class="form-control" id="idEditora" required="true" value="#{livroMB.livroSelecionado.editora}" />
 
-                <h:outputLabel for="idSenha" value="Senha"/>
-                <h:inputSecret class="form-control" redisplay="true" id="idSenha" required="true" value="#{usuarioMB.usuarioSelecionado.senha}" />
+                <h:outputLabel for="idAno" value="Ano:"/>
+                <h:inputText class="form-control" id="idAno" required="true" value="#{livroMB.livroSelecionado.ano}" />
 
-                <h:outputLabel for="idAdmin" value="É admin"/>
-                <h:selectBooleanCheckbox value="#{usuarioMB.usuarioSelecionado.admin}" />
+                <h:outputLabel for="idQtde" value="Quantidade:"/>
+                <h:inputText class="form-control" id="idQtde" required="true" value="#{livroMB.livroSelecionado.qtde}" />
 
-                <h:commandButton class="btn btn-success" value="Editar" action="#{usuarioMB.atualizarUsuario()}"/>
-                <h:button class="btn btn-success" value="Voltar" outcome="/admin2/index"/>
+                <h:commandButton value="Editar" action="#{livroMB.atualizarLivro()}"/>
+                <h:button value="Voltar" outcome="/livro3/index"/>
             </h:panelGrid>
         </h:form>
          </div>

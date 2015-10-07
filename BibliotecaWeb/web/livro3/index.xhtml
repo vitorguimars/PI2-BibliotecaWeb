@@ -25,7 +25,6 @@
                                 <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Cadastro de Livro" action="/livro3/cadastro?faces-redirect=true"/>
                                 <h:commandButton style="margin-top:5px;" class="btn btn-default" value="Logout" action="#{loginMB.realizaLogout()}"/>
                             </h:form>
-
                         </div>
                     </div>
                 </nav>
@@ -33,57 +32,57 @@
 
             <ui:define name="content">
                 <div style="margin-left: 30%;" class="well col-lg-6 col-offset-6">
-                    <h:outputLabel style="font-size: 25px;" value="Lista de Usuários" />
+                    <h:outputLabel style="font-size: 25px;" value="Lista de Livros" />
                     <h:form>
-                        <h:dataTable style="min-width:600px;min-height:100px;" class="table-bordered"   var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
+                        <h:dataTable style="min-width:600px;min-height:100px;" class="table-bordered"   var="livro" value="#{livroMB.listaLivros}" border="1">
                             <f:facet name="header">
-                                <h:outputText  value="Tabela de Usuarios" />
+                                <h:outputText  value="Tabela de Livro" />
                             </f:facet>
 
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText   value="Matricula" />
+                                    <h:outputText value=" ISBN:   " />
                                 </f:facet>
-                                <h:outputText  id="idMatricula" value="#{usuario.matricula}"  />
+                                <h:outputText id="isbn" value="#{livro.isbn}"  />
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText  value="Nome" />
+                                    <h:outputText value=" Nome do Livro:    " />
                                 </f:facet>
-                                <h:outputText  id="idNome" value="#{usuario.nome}"  />
+                                <h:outputText id="idNomeLivro" value="#{livro.nomeLivro}"  />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText value="Telefone" />
+                                    <h:outputText value=" Autor:   " />
                                 </f:facet>
-                                <h:outputText  id="idTelefone" value="#{usuario.telefone}" />
+                                <h:outputText id="idAutor" value="#{livro.autor}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText  value="Livros Pegos" />
+                                    <h:outputText value=" Editora:  " />
                                 </f:facet>
-                                <h:outputText  id="idLivrosPegos" value="#{usuario.livrosPegos}" />
+                                <h:outputText id="idEditora" value="#{livro.editora}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText  value="Login" />
+                                    <h:outputText value=" Ano:   " />
                                 </f:facet>
-                                <h:outputText  id="idLogin" value="#{usuario.login}" />
+                                <h:outputText  id="idAno" value="#{livro.ano}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">
-                                    <h:outputText  value="E admin" />
+                                    <h:outputText value=" Quantidade:   " />
                                 </f:facet>
-                                <h:outputText  value="#{usuario.adminString}" />
+                                <h:outputText  id="idQtde" value="#{livro.qtde}" />
                             </h:column>
                             <h:column >
                                 <f:facet name="header">
                                     <h:outputText value="Operacao" />
                                 </f:facet>
-                                <h:commandLink value="Editar " action="#{usuarioMB.editarUsuario(usuario)}"/>
-                                &nbsp;&nbsp;&nbsp;
-                                <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
+                                <h:commandLink value="Editar " action="#{livroMB.editarLivro(livro)}"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <h:commandLink value="Remover" action="#{livroMB.removerLivro(livro)}"/>
                             </h:column>
                         </h:dataTable>
                         <br/>
