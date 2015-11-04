@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebFilter(filterName = "LoginFiltro", urlPatterns = {"/faces/login.xhtml"})
 public class LoginFiltro implements Filter {
-    
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
@@ -32,14 +32,15 @@ public class LoginFiltro implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
-        if(auth!=null && auth.estaLogado()){
-            if(auth.eAdmin())
-                resp.sendRedirect(req.getContextPath()+"/faces/admin2/index.xhtml");
-            else
-                resp.sendRedirect(req.getContextPath()+"/faces/usuario1/index.xhtml");
-        }            
-        else
+        if (auth != null && auth.estaLogado()) {
+            if (auth.eAdmin()) {
+                resp.sendRedirect(req.getContextPath() + "/faces/admin2/index.xhtml");
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/faces/usuario1/index.xhtml");
+            }
+        } else {
             chain.doFilter(request, response);
+        }
     }
 
     @Override
@@ -49,5 +50,5 @@ public class LoginFiltro implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
     }
-    
+
 }

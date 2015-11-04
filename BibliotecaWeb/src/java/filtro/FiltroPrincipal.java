@@ -31,15 +31,16 @@ public class FiltroPrincipal implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
+
         System.out.println("Verificando acesso do admin!");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
-        if(auth!=null && auth.estaLogado() && auth.eAdmin())
+        if (auth != null && auth.estaLogado() && auth.eAdmin()) {
             chain.doFilter(request, response);
-        else
-            resp.sendRedirect(req.getContextPath()+"/faces/login.xhtml");
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/faces/login.xhtml");
+        }
     }
 
     @Override
@@ -51,4 +52,3 @@ public class FiltroPrincipal implements Filter {
     }
 
 }
-

@@ -1,4 +1,3 @@
-
 package filtro;
 
 import bean.LoginMB;
@@ -28,10 +27,11 @@ public class FiltroUsuario implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
-        if(auth!=null && auth.estaLogado())
+        if (auth != null && auth.estaLogado()) {
             chain.doFilter(request, response);
-        else
-            resp.sendRedirect(req.getContextPath()+"/faces/login.xhtml");
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/faces/login.xhtml");
+        }
     }
 
     @Override

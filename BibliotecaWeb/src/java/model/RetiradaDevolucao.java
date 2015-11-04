@@ -1,17 +1,16 @@
-
 package model;
 
 import java.text.SimpleDateFormat;
 
 public class RetiradaDevolucao {
-    
+
     private String dataRetirada;
     private String dataParaDevolucao;
     private Livro livro;
     private Usuario usuario;
-    
-    public RetiradaDevolucao(Usuario usuario, Livro livro, String dataRetirada, String dataParaDevolucao){
-        this.dataRetirada = dataRetirada; 
+
+    public RetiradaDevolucao(Usuario usuario, Livro livro, String dataRetirada, String dataParaDevolucao) {
+        this.dataRetirada = dataRetirada;
         this.dataParaDevolucao = dataParaDevolucao;
         this.usuario = usuario;
         this.livro = livro;
@@ -19,42 +18,41 @@ public class RetiradaDevolucao {
 
     RetiradaDevolucao() {
     }
-    
-    public void setDataRetirada(String dataRetirada){
-        
+
+    public void setDataRetirada(String dataRetirada) {
+
         this.dataRetirada = dataRetirada;
     }
-    
-    public String getDataRetirada(){
+
+    public String getDataRetirada() {
         return dataRetirada;
     }
-    
-    public void setDataParaDevolucao(String dataDevolucao){
-        
+
+    public void setDataParaDevolucao(String dataDevolucao) {
+
         this.dataParaDevolucao = dataDevolucao;
     }
-    
-    public String getDataParaDevolucao(){
+
+    public String getDataParaDevolucao() {
         return dataParaDevolucao;
     }
-    
-    public void setUsuario(Usuario usuario){
-        
+
+    public void setUsuario(Usuario usuario) {
+
         this.usuario = usuario;
     }
-    
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return usuario;
     }
-    
-    public void setLivro(Livro livro){
-        
+
+    public void setLivro(Livro livro) {
+
         this.livro = livro;
     }
-    
-    public Livro getLivro(){
+
+    public Livro getLivro() {
         return livro;
     }
-   
-}
 
+}

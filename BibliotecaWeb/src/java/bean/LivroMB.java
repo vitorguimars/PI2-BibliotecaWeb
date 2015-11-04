@@ -1,4 +1,3 @@
-
 package bean;
 
 import java.util.ArrayList;
@@ -18,6 +17,8 @@ public class LivroMB {
     //CRUD
     private List<Livro> listaLivros;
     private Livro livroSelecionado;
+    
+    private Livro livro = new Livro();
 
     public LivroMB() {
         livroSelecionado = new Livro();
@@ -40,32 +41,30 @@ public class LivroMB {
     public void setListaLivros(List<Livro> listaLivros) {
         this.listaLivros = listaLivros;
     }
-    
 
-    public String novoLivro(){
-        livroSelecionado=new Livro();
-        return("/livro3/cadastro?faces-redirect=true");
+    public String novoLivro() {
+        livroSelecionado = new Livro();
+        return ("/livro3/index?faces-redirect=true");
     }
 
-    public String adicionarLivro()
-    {
+    public String adicionarLivro() {
         listaLivros.add(livroSelecionado);
-        return(this.novoLivro());
-        
+        return (this.novoLivro());
+
     }
 
-    public String editarLivro(Livro u){
+    public String editarLivro(Livro u) {
         livroSelecionado = u;
-        return("/livro3/edicao?faces-redirect=true");
-    }
-    
-    public String atualizarLivro()
-    {
-        return("/livro3/index?faces-redirect=true");
+        return ("/livro3/edicao?faces-redirect=true");
     }
 
-    public void removerLivro(Livro livro){
+    public String atualizarLivro() {
+        livroSelecionado = new Livro();
+        return ("/livro3/index?faces-redirect=true");
+    }
+
+    public void removerLivro(Livro livro) {
         listaLivros.remove(livro);
     }
-  
+
 }

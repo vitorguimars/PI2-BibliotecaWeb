@@ -1,4 +1,3 @@
-
 package model;
 
 /**
@@ -6,7 +5,7 @@ package model;
  * @author vitor
  */
 public class Usuario {
-    
+
     private int matricula;
     private String nome;
     private String telefone;
@@ -14,19 +13,16 @@ public class Usuario {
     private String login;
     private String senha;
     private boolean admin;
-    
-    
-    
+
     public Usuario() {
     }
-    
-    
-     public Usuario(String login, String senha) {
-        this.nome = login;        
+
+    public Usuario(String login, String senha) {
+        this.nome = login;
         this.login = login;
         this.senha = senha;
         this.admin = true;
-        
+
     }
 
     public int getMatricula() {
@@ -84,16 +80,17 @@ public class Usuario {
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
-     
-     public String getAdminString(){
-        if(admin) return "SIM";
-        else return "NAO";
+
+    public String getAdminString() {
+        if (admin) {
+            return "SIM";
+        } else {
+            return "NAO";
+        }
     }
 
-    public boolean verificaLogin(String login, String senha){
-        return(this.login.equals(login) && this.senha.equals(senha));
+    public boolean verificaLogin(String login, String senha) {
+        return (this.login.equals(login) && this.senha.equals(senha));
     }
-     
-     
-    
+
 }

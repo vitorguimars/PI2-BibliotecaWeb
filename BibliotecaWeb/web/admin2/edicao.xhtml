@@ -55,7 +55,7 @@
                 <h:selectBooleanCheckbox value="#{usuarioMB.usuarioSelecionado.admin}" />
 
                 <h:commandButton class="btn btn-success" value="Editar" action="#{usuarioMB.atualizarUsuario()}"/>
-                <h:button class="btn btn-success" value="Voltar" outcome="/admin2/index"/>
+                <h:commandButton class="btn btn-danger" value="Voltar" action="/admin2/index?faces-redirect=true"/>
             </h:panelGrid>
         </h:form>
          </div>

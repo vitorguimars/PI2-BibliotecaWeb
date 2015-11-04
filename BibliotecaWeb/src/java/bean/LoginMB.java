@@ -1,4 +1,3 @@
-
 package bean;
 
 import java.util.List;
@@ -15,8 +14,10 @@ import model.Usuario;
 @ManagedBean
 @SessionScoped
 public class LoginMB {
- private String login, senha;
-    private Usuario usuarioLogado;    
+
+    private String login, senha;
+    private Usuario usuarioLogado;
+
     public String getLogin() {
         return login;
     }
@@ -41,22 +42,22 @@ public class LoginMB {
         this.usuarioLogado = usuarioLogado;
     }
 
-    public boolean estaLogado(){
-        return(usuarioLogado!=null);
+    public boolean estaLogado() {
+        return (usuarioLogado != null);
     }
-    
-    public boolean eAdmin(){
+
+    public boolean eAdmin() {
         return (this.estaLogado() && this.getUsuarioLogado().isAdmin());
     }
 
     public String verificaLogin() {
         //Pega o contexto do JSF - serve agora e depois para mensagem.
-        FacesContext contexto = FacesContext.getCurrentInstance(); 
+        FacesContext contexto = FacesContext.getCurrentInstance();
         //Obtém o usuarioMB criado pelo servidor (nível de aplicação)
         UsuarioMB usuarioMB = (UsuarioMB) contexto.getExternalContext().getApplicationMap().get("usuarioMB");
         //A partir do usuarioMB do servidor, pegamos a lista de usuários cadastrados no sistema
         List<Usuario> listaUsuarios = usuarioMB.getListaUsuarios();
-        
+
         for (Usuario usuario : listaUsuarios) {
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
@@ -67,7 +68,7 @@ public class LoginMB {
                 }
             }
         }
-        
+
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                 "Login inválido!", "Usuário ou senha estão errados!");
         contexto.addMessage("idMensagem", mensagem);
